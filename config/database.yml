@@ -8,16 +8,16 @@
 
 # MYSQL
 development:
-  adapter: mysql
+  adapter: postgresql
   database: enginey_development
-  username: root
+  username: mike
   password:  
   host: localhost
 
 test:
-  adapter: mysql
+  adapter: postgresql
   database: enginey_test
-  username: root
+  username: mike
   password:  
   host: localhost
   

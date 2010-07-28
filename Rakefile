@@ -18,3 +18,11 @@ Rake::TestTask.new('api_tests') do |t|
   t.pattern = 'test/api/*.rb'
   t.warning = false
 end
+
+desc "Bootstrap the EngineY database"
+task :bootstrap => :environment do
+  ActionMailer::Base.delivery_method = :test # don't send email
+  ['db:create:all', 'db:migrate', 'enginey:db:rubymi_populate'].each do |task|
+    Rake::Task[task].invoke
+  end
+end
